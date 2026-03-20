@@ -1,0 +1,520 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+#nav-links{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+#nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 1000;
+    transition: 0.3s;
+}
+#nav-links a:hover {
+    color: #2ecc71; 
+}
+.hero{
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url(gym-images/home.jpg) center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+.hero h1{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+.logo{
+   color: white;
+    font-size: 28px;
+    font-weight: 800; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    cursor: pointer;
+}
+.logo:hover{
+    color:#2ecc71; 
+}
+.cta-btn {
+    display: inline-block; /* Crucial: stops it from taking the full width */
+    width: fit-content;    /* Extra safety: tells it only to be as wide as the text */
+    padding: 12px 30px;    /* 12px top/bottom, 30px left/right */
+    
+    /* keep your other styles below */
+    margin-top: 20px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.cta-btn:hover{
+    background-color: #2ecc71;
+    border: none;
+}
+.hamburger{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none !important;
+    border: none !important;
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+.hamburger span{
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+}
+@media(max-width: 768px){
+    .hamburger{
+        display:flex ;
+    }
+   #nav-links{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 5%;
+    background: rgba(0, 0, 0, 0.9);
+    width: 200px;
+    padding: 20px;
+    border-radius: 8px;
+     text-align: right;
+   }
+   #nav-links.active{
+        display: flex;
+   }
+   .hero{
+    padding: 0 20px;
+    text-align: center;
+   }
+   .hero h1{
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+   }
+   .hero p{
+     width: 80%;
+     padding: 15px 0;
+   }
+   .hero .cta-btn {
+        width: 80%;            
+        padding: 15px 0;       
+    }
+}
+/*---------program section-------*/
+.programs{
+    background-color: #111;
+    padding: 60px 20px;
+    color: #fff;
+}
+.program-title{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 1000;
+}
+.programs-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+.program-card{
+    background-color: #000;
+    color: #fff;
+    flex: 1 1 calc(33.33% - 30px);
+    max-width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.program-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 5px #2ecc71; /* green glow */
+}
+.icon-wrapper img{
+    width: 35px;
+    height: 35px;
+}
+.icon-wrapper{
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px auto;
+    border-radius: 50%;
+    background-color: #2ecc71;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.program-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.program-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #ccc;
+}
+@media (max-width: 900px){
+    .program-card{
+        flex: 1 1 calc(50% -30px);
+    }
+}
+@media (max-width: 600px){
+    .program-card{
+        flex: 1 1 100%;
+    }
+}
+/*--------trainers-section-------*/
+.trainers{
+    padding: 80px 20px;
+    background: #111;
+}
+.trainer-title{
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 1000;
+}
+
+.trainers-grid{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.trainer-card{
+    position: relative;
+    width: 320px;
+    height: 480px;
+    border-radius: 20px;
+    overflow: hidden;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.trainer-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.trainer-card:hover img{
+    transform: scale(1.08);
+}
+
+.trainer-info{
+    position: absolute;
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: rgba(0, 120, 100, 0.75);
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s ease;
+}
+.trainer-info h3{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.trainer-info p{
+    font-size: 14px;
+    line-height: 1.6;
+}
+.trainer-card:hover{
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+.trainer-card:hover .trainer-info{
+    transform: translateY(-10px);
+}
+
+/*--------pricing section-------*/
+.pricing{
+    padding: 80px 20px;
+    background: #111;
+    color: #fff;
+}
+.pricing-title{
+    text-align: center;
+    font-weight: 1000;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+.pricing-grid{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.plan-card{
+     border: 2px solid #22c55e; 
+     border-radius: 15px;
+     padding: 30px 20px;
+     width: 280px;
+     text-align: center;
+     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.plan-card h3{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+.plan-card .price{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+}
+.plan-card ul{
+    list-style: none;
+    padding: 0;
+}
+.plan-card ul li{
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+.plan-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    background: #22c55e;
+    border: none;
+}
+/*-------testimonial section----*/
+.testimonials{
+    padding: 80px 20px;
+    background: #111;
+    color: #fff;
+}
+.testimonial-title{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 1000;
+    margin-bottom: 50px;
+}
+.testimonial-grid{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.testimonial-card{
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    background: #1a1a1a;
+    padding: 25px;
+    width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+.testimonial-img img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.testimonial-content p{
+    color: #fff;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.testimonial-content h4{
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.stars{
+    color: gold;
+    font-size: 16px;
+}
+/*-------contact section-----*/
+.contact{
+    padding: 80px 20px;
+    background: #1a1a1a;
+    color: #fff;
+}
+.contact-title{
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: 1000;
+}
+.contact-grid{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+.contact-info{
+    width: 350px;
+}
+.contact-info h3{
+    margin-bottom: 10px;
+}
+.contact-info p{
+    color: #fff;
+    margin-bottom: 10px;
+}
+.contact-socials{
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+}
+.contact-socials a{
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition:color  0.3s ;
+}
+.contact-socials a:hover{
+    color: gold;
+}
+.contact-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+}
+.contact-form input,
+.contact-form textarea{
+    padding: 12px;
+    border: none;
+    outline: none;
+     background: #fff;
+     color: #111;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color: #22c55e;
+}
+.contact-form button{
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #fff;
+    color: #111;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.contact-form button:hover{
+    transform: translateY(-3px);
+    background: #e5e5e5; 
+}
+/* --- Responsive Contact Form --- */
+@media (max-width: 768px) {
+    .contact {
+        padding: 60px 15px; /* Slightly less padding on mobile */
+    }
+
+
+    .contact-grid {
+        gap: 40px; /* Bring the info and form closer together when stacked */
+    }
+
+    .contact-info, 
+    .contact-form form {
+        width: 100%;    /* Force both blocks to take up full width */
+        max-width: 100%; /* Remove the fixed 350px/400px constraints */
+    }
+
+    .contact-info {
+        text-align: center; /* Optional: centers text for a cleaner mobile look */
+    }
+
+    .contact-socials {
+        align-items: center; /* Centers the social links if text is centered */
+    }
+
+    .contact-form button {
+        width: 100%; /* Makes the button big and easy to tap with a thumb */
+        padding: 15px;
+    }
+}
+.footer{
+    background: #22c55e;
+    color: #fff;
+    padding: 60px 20px 30px;
+}
+.footer-grid{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.footer h3,
+.footer h4{
+    color: #fff;
+    margin-bottom: 15px;
+}
+.footer p{
+    color: #fff;
+    max-width: 250px;
+}
+.footer a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+.footer a:hover{
+    color:  gold;
+}
+.footer-bottom{
+    text-align: center;
+    color: #777;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+@media(max-width: 768px){
+    .footer{
+        padding: 50px 20px 20px;
+    }
+    .footer-grid{
+        display: flex;
+        flex-direction: column;
+       
+    }
+    
+}
